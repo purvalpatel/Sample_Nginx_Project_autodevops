@@ -1,2 +1,2 @@
 # Docker-with-jenkins
-Deploying jenkins with Docker
+Deploying sample nginx web project by using jenkins with Docker
