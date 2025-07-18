@@ -1,2 +1,2 @@
 # Docker-with-jenkins
-deploying jenkins with docker
+Deploying jenkins with Docker
