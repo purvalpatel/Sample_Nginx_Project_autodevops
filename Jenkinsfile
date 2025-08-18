@@ -16,12 +16,13 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                // withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKERHUB_PASS')]) {
+                withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKERHUB_PASS')]) {
                     sh '''
+                    echo "$DOCKERHUB_PASS" | sudo docker login -u purval1992 --password-stdin
                     sudo docker tag myapp:latest purval1992/maven-project-pipeline:0.1
                     sudo docker push purval1992/maven-project-pipeline:0.1
                     '''
-                // }
+                }
             }
         }
 
