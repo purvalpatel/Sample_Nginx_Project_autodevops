@@ -1,1 +1,30 @@
 ---
+- name: Deploy Nginx app from Docker Hub
+  hosts: webservers   # inventory group or remote host
+  become: true
+
+  tasks:
+    - name: Ensure Docker is installed
+      ansible.builtin.package:
+        name: docker.io
+        state: present
+
+    - name: Pull latest Docker image
+      community.docker.docker_image:
+        name: purval1992/maven-project-pipeline
+        tag: "0.1"
+        source: pull
+
+    - name: Stop and remove existing container (if any)
+      community.docker.docker_container:
+        name: myapp
+        state: absent
+
+    - name: Run new container
+      community.docker.docker_container:
+        name: myapp
+        image: purval1992/maven-project-pipeline:0.1
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
