@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/user/myapp.git'
+                git 'https://github.com/purvalpatel/Sample_Nginx_Project_autodevops.git'
             }
         }
 
@@ -18,9 +18,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKERHUB_PASS')]) {
                     sh '''
-                    echo $DOCKERHUB_PASS | docker login -u mydockeruser --password-stdin
                     docker tag myapp:latest mydockeruser/myapp:latest
-                    docker push mydockeruser/myapp:latest
                     '''
                 }
             }
