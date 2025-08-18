@@ -19,6 +19,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKERHUB_PASS')]) {
                     sh '''
                     sudo docker tag myapp:latest purval1992/maven-project-pipeline:0.1
+                    sudo docker push purval1992/maven-project-pipeline:0.1
                     '''
                 }
             }
