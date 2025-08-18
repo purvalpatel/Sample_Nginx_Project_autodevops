@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()   // Jenkins Workspace Cleanup Plugin
+            }
+        }
+        
         stage('Clone Repo') {
             steps {
                 git branch: 'main', url: 'https://github.com/purvalpatel/Sample_Nginx_Project_autodevops.git'
