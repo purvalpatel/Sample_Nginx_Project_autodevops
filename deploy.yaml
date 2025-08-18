@@ -4,10 +4,10 @@
   become: true
 
   tasks:
-    - name: Ensure Docker is installed
-      ansible.builtin.package:
-        name: docker.io
-        state: present
+    # - name: Ensure Docker is installed
+    #   ansible.builtin.package:
+    #     name: docker.io
+    #     state: present
 
     - name: Pull latest Docker image
       community.docker.docker_image:
