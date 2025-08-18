@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t myapp:latest .'
+                sh 'sudo docker build -t myapp:latest .'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKERHUB_PASS')]) {
                     sh '''
-                    docker tag myapp:latest mydockeruser/myapp:latest
+                    sudo docker tag myapp:latest mydockeruser/myapp:latest
                     '''
                 }
             }
