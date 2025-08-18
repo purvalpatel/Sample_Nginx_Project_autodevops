@@ -1,6 +1,6 @@
 FROM nginx:latest 
 MAINTAINER rahulkasarla@yahoo.com
-RUN apt install -y curl net-tools jq 
+#RUN apt install -y curl net-tools jq 
 COPY index.html /usr/share/nginx/html/
 COPY scorekeeper.js /usr/share/nginx/html/
 COPY style.css /usr/share/nginx/html/
