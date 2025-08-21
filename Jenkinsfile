@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build -t myapp:latest .'
+                sh 'sudo docker build --no-cache -t myapp:latest .'
             }
         }
 
