@@ -23,7 +23,7 @@
     - name: Run new container
       community.docker.docker_container:
         name: myapp
-        image: purval1992/maven-project-pipeline:0.2
+        image: purval1992/maven-project-pipeline:0.1
         state: started
         restart_policy: always
         ports:
