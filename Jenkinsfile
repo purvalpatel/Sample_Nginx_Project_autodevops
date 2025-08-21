@@ -26,8 +26,8 @@ pipeline {
                     sh '''
                     echo "Logging into dockerhub"
                     echo "$DOCKERHUB_PASS" | sudo docker login -u purval1992 --password-stdin
-                    sudo docker tag myapp:latest purval1992/maven-project-pipeline:0.1
-                    sudo docker push purval1992/maven-project-pipeline:0.1
+                    sudo docker tag myapp:latest purval1992/maven-project-pipeline:0.2
+                    sudo docker push purval1992/maven-project-pipeline:0.2
                     '''
                 }
             }
